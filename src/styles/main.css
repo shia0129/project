@@ -1,0 +1,113 @@
+header > div {
+  display: flex;
+  align-items: center;
+}
+header > .ctrl > div {
+  position: relative;
+}
+header > .ctrl > div > .list {
+  opacity: 0;
+  position: absolute;
+  z-index: 10000;
+  top: 46px;
+  right: 0;
+  overflow: hidden;
+  display: none;
+}
+header > .ctrl > div > .list.active {
+  display: block;
+  opacity: 1;
+  box-shadow: 0 1px 4px var(--shadow);
+  min-height: 100px;
+  height: auto;
+  width: 400px;
+  background-color: var(--white);
+  border: solid 1px var(--gray);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+header > .ctrl > div > .list > ul {
+  display: none;
+}
+header > .ctrl > div > .list.active > ul {
+  display: block;
+}
+header > .ctrl > div > .list > ul > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 15px;
+  border-top: solid 1px var(--gray1);
+}
+header > .ctrl > div > .list > ul > li .vol-icon {
+  font-size: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 20px;
+  background-color: var(--bg);
+  color: var(--main);
+}
+header > .ctrl > div > .list > ul > li .gnb_info {
+  width: 290px;
+}
+header > .ctrl > div > .list > ul > li > h3 {
+  font-size: 15px;
+  font-weight: 500 !important;
+}
+header > .ctrl > div > .list > ul > li:first-child {
+  border-top: none;
+}
+header > .ctrl > div > .list > ul > li:first-child > div > button:first-child {
+  margin-right: 5px;
+}
+header > .ctrl > div > .list > ul > li:last-child {
+  justify-content: center;
+}
+header > .ctrl > div > .list > ul > li:last-child a {
+  color: var(--dark1);
+}
+header > .ctrl > div > i {
+  color: var(--dark1);
+  font-size: 22px;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 9px;
+  border-radius: 3px;
+}
+header > .ctrl > div > i.on,
+header > .ctrl > div > i:hover,
+header .bx-menu.side_on,
+header .bx-menu:hover {
+  background-color: var(--gray1);
+  transition: all 0.2s ease-in;
+}
+header > .ctrl > div > .num {
+  position: absolute;
+  top: 2px;
+  left: 30px;
+  display: flex;
+  font-weight: 500;
+  min-width: 10px;
+  height: 10px;
+  padding: 4px;
+  border-radius: 10px;
+  font-size: 12px;
+  background-color: var(--main);
+  color: var(--white);
+  justify-content: center;
+  align-items: center;
+}
+header .bx-menu {
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 3px;
+  font-size: 25px;
+  color: var(--dark1);
+  background-color: var(--white);
+}
+header h1 {
+  margin-left: 20px;
+}

@@ -1,0 +1,364 @@
+@charset "utf-8";
+/* 폰트/태그리셋/색상코드 */
+
+@font-face {
+  font-family: NG;
+  font-style: normal;
+  src: local(‘Nanum Gothic Regular’), local(‘Nanum Gothic-Regular’),
+    local(‘NanumGothic Regular’);
+  src: url(/public/font/NanumGothic.woff) format("woff");
+}
+@font-face {
+  font-family: NGB;
+  font-style: normal;
+  src: local(‘Nanum Gothic Regular’), local(‘Nanum Gothic-Regular’),
+    local(‘NanumGothic Regular’);
+  src: url(/public/font/NanumGothicBold.woff) format("woff");
+}
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url(/public/font/NotoSansKR-Light-Hestia.eot) format("eot"),
+    url(/public/font/NotoSansKR-Light-Hestia.eot?#iefix)
+      format("embedded-opentype"),
+    url(/public/font/NotoSansKR-Light-Hestia.woff) format("woff"),
+    url(/public/font/NotoSansKR-Light-Hestia.otf) format("opentype");
+}
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/public/font/NotoSansKR-Regular-Hestia.eot) format("eot"),
+    url(/public/font/NotoSansKR-Regular-Hestia.eot?#iefix)
+      format("embedded-opentype"),
+    url(/public/font/NotoSansKR-Regular-Hestia.woff) format("woff"),
+    url(/public/font/NotoSansKR-Regular-Hestia.otf) format("opentype");
+}
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url(/public/font/NotoSansKR-Medium-Hestia.eot) format("eot"),
+    url(/public/font/NotoSansKR-Medium-Hestia.eot?#iefix)
+      format("embedded-opentype"),
+    url(/public/font/NotoSansKR-Medium-Hestia.woff) format("woff"),
+    url(/public/font/NotoSansKR-Medium-Hestia.otf) format("opentype");
+}
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url(/public/font/NotoSansKR-Bold-Hestia.eot) format("eot"),
+    url(/public/font/NotoSansKR-Bold-Hestia.eot?#iefix)
+      format("embedded-opentype"),
+    url(/public/font/NotoSansKR-Bold-Hestia.woff) format("woff"),
+    url(/public/font/NotoSansKR-Bold-Hestia.otf) format("opentype");
+}
+@font-face {
+  font-family: roboto;
+  src: url(/public/font/Roboto-Light-webfont.eot);
+  src: url(/public/font/Roboto-Light-webfont.eot?#iefix)
+      format("embedded-opentype"),
+    url(/public/font/Roboto-Light-webfont.woff) format("woff"),
+    url(/public/font/Roboto-Light-webfont.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: roboto;
+  src: url(/public/font/Roboto-Regular-webfont.eot);
+  src: url(/public/font/Roboto-Regular-webfont.eot?#iefix)
+      format("embedded-opentype"),
+    url(/public/font/Roboto-Regular-webfont.woff) format("woff"),
+    url(/public/font/Roboto-Regular-webfont.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  font-family: "roboto", "Noto Sans", "Malgun Gothic", dotum, sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: -0.5px;
+  font-style: normal;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+legend,
+li,
+ol,
+p,
+select,
+table,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+body,
+button,
+input,
+select,
+table,
+textarea {
+  font-size: 14px;
+  color: var(--dark1);
+}
+input,
+select,
+textarea {
+  min-width: 50px;
+  border: 1px solid var(--gray3);
+  padding: 5px 8px 5px 12px;
+  margin: 0 3px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: var(--white);
+  color: var(--dark1);
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+input:disabled,
+select:disabled,
+textarea:disabled,
+select[disabled] > option,
+.input_readonly {
+  background-color: var(--gray2);
+  border: 1px solid var(--gray3);
+  opacity: 1;
+}
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: var(--gray-dark);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+  font-family: "Noto Sans", "Malgun Gothic", dotum, sans-serif;
+  word-break: break-all;
+  letter-spacing: -0.5px;
+}
+fieldset,
+iframe,
+img {
+  border: 0 none;
+}
+ol,
+ul {
+  list-style: none;
+}
+address,
+em {
+  font-style: normal;
+}
+i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+label {
+  cursor: default;
+}
+button {
+  cursor: pointer;
+}
+table {
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+caption,
+hr,
+legend {
+  display: none;
+}
+button,
+input,
+select {
+  vertical-align: middle;
+}
+button {
+  overflow: visible;
+  border: 0;
+  background-color: transparent;
+}
+button::-moz-focus-inner {
+  padding: 0;
+}
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+/* 버튼 디자인 */
+button {
+  min-width: 64px;
+  line-height: 1.75;
+  font-size: 14px;
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+button.sm {
+  border: solid 1px var(--gray2);
+  font-size: 12px;
+  line-height: 1.4;
+}
+button.sm:hover {
+  border: solid 1px var(--gray-dark);
+}
+button.icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+button i {
+  font-size: 14px;
+}
+button:hover {
+  transition: all 0.2s ease-in;
+}
+button.btn {
+  border: solid 1px var(--gray2);
+  background-color: var(--white);
+}
+button.btn:hover {
+  border: solid 1px var(--gray-dark);
+  background-color: var(--white);
+}
+button.btn-main {
+  background-color: var(--main);
+  color: var(--white);
+}
+button.btn-main:hover {
+  background-color: var(--main-hv);
+}
+button.btn-info {
+  background-color: var(--info);
+  color: var(--white);
+}
+button.btn-info:hover {
+  background-color: var(--info-hv);
+  color: var(--white);
+}
+
+a {
+  color: var(--dark);
+}
+a:active,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  color: var(--dark);
+  text-decoration: none;
+}
+:after,
+:before {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+h1 {
+  /* 제목 */
+  font-size: 20px;
+}
+h2 {
+  /* 소제목 */
+  font-size: 18px;
+}
+h3 {
+  /* 팝업 제목 */
+  font-size: 15px;
+}
+p {
+  /* 기본 글 */
+  font-size: 14px;
+}
+.text {
+  /* 작은 글 */
+  font-size: 12px;
+}
+
+/* ::-webkit-scrollbar{width:8px;height:8px;border:3px solid #fff}
+::-webkit-scrollbar-button:end:increment,::-webkit-scrollbar-button:start:decrement{display:block;height:10px;background:#efefef}
+::-webkit-scrollbar-track{background:#efefef;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:inset 0 0 4px rgba(0,0,0,.2)}
+::-webkit-scrollbar-thumb{height:50px;width:50px;background:rgba(0,0,0,.2);-webkit-border-radius:8px;border-radius:8px;-webkit-box-shadow:inset 0 0 4px rgba(0,0,0,.1)} */
+:root {
+  --main: #008abb;
+  --main-hv: #015d8e;
+  --bg: rgba(184, 196, 255, 0.17);
+  --error: #ff4d4f;
+  --error-hv: #c83d3f;
+  --success: #52c41a;
+  --success-hv: #3d9213;
+  --info: #13c2c2;
+  --info-hv: #0e9999;
+  --white: #ffffff;
+  --gray: #fafafa;
+  --gray1: #f5f5f5;
+  --gray2: #f0f0f0;
+  --gray3: #d9d9d9;
+  --gray-dark: #bfbfbf;
+  --dark: #8c8c8c;
+  --dark1: #262626;
+  --dark2: #262626;
+  --dark3: #141414;
+  --black: #000000;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+:root[color-theme="dark"] {
+  --white: #000000;
+  --gray: #141414;
+  --gray1: #1e1e1e;
+  --gray2: #595959;
+  --gray3: #8c8c8c;
+  --gray-dark: #bfbfbf;
+  --dark: #d9d9d9;
+  --dark1: #f0f0f0;
+  --dark2: #f5f5f5;
+  --dark3: #fafafa;
+  --black: #ffffff;
+  --shadow: #595959;
+}
