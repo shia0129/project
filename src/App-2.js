@@ -18,19 +18,16 @@ const menuGroups = [
       title: "알람 메일 설정",
       icon: <IoGridOutline />,
       path: "/",
-      element: <Section />,
     },
     {
       title: "CDS 환경 설정",
       icon: <IoGridOutline />,
-      path: "/Article-env",
-      element: <Article />,
+      path: "/cds-env",
     },
     {
       title: "솔루션 환경 설정",
       icon: <IoGridOutline />,
       path: "/solution-env",
-      element: <Section />,
     },
   ],
   [
@@ -41,72 +38,23 @@ const menuGroups = [
       title: "관리자 정보 관리",
       icon: <IoAlbumsOutline />,
       subMenu: [
-        {
-          title: "관리자 관리",
-          icon: <IoGridOutline />,
-          path: "/article",
-          element: <Article />,
-        },
-        {
-          title: "관리자 접속 이력",
-          path: "/article/test2",
-          element: <Article />,
-        },
-        {
-          title: "관리자 차단 해지",
-          path: "/article/test3",
-          element: <Article />,
-        },
+        { title: "관리자 관리", icon: <IoGridOutline />, path: "/article" },
+        { title: "관리자 접속 이력", path: "/article/test2" },
+        { title: "관리자 차단 해지", path: "/article/test3" },
       ],
     },
     {
       title: "관리자 감사",
       icon: <IoAlbumsOutline />,
       subMenu: [
-        {
-          title: "사용자 정책 변경 이력",
-          path: "/section/test4",
-          element: <Section />,
-        },
-        {
-          title: "CDS 정책 변경이력",
-          path: "/section/test5",
-          element: <Section />,
-        },
+        { title: "사용자 정책 변경 이력", path: "/section/test4" },
+        { title: "CDS 정책 변경이력", path: "/section/test5" },
       ],
     },
   ],
   // 추가적인 menuItems 배열을 여기에 추가
 ];
-function generateRoutes(menuGroups) {
-  const routes = [];
 
-  menuGroups.forEach((group) => {
-    group.forEach((item) => {
-      if (item.path) {
-        routes.push(
-          <Route key={item.path} path={item.path} element={item.element} />
-        );
-      }
-
-      if (item.subMenu) {
-        item.subMenu.forEach((subItem) => {
-          if (subItem.path) {
-            routes.push(
-              <Route
-                key={subItem.path}
-                path={subItem.path}
-                element={subItem.element}
-              />
-            );
-          }
-        });
-      }
-    });
-  });
-
-  return routes;
-}
 function App() {
   const [navClosed, setNavClosed] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -128,12 +76,20 @@ function App() {
             <Header navClosed={navClosed} toggleNav={toggleNav} />
             <section>
               <Breadcrumbs
+                // pathTitles={pathTitles}
                 toggleFullscreen={toggleFullscreen}
                 isFullscreen={isFullscreen}
                 menuGroups={menuGroups}
               />
               <Routes>
-                {generateRoutes(menuGroups)}
+                <Route path="/" element={<Section />} />
+                <Route path="/cds-env" element={<Article />} />
+                <Route path="/solution-env" element={<Section />} />
+                <Route path="/article" element={<Article />} />
+                <Route path="/article/test2" element={<Article />} />
+                <Route path="/article/test3" element={<Article />} />
+                <Route path="/section/test4" element={<Section />} />
+                <Route path="/section/test5" element={<Section />} />
                 <Route path="*" element={<EmptyPage />} />
               </Routes>
             </section>

@@ -223,10 +223,11 @@ section {
 .breadcrumb ol li {
   color: var(--dark);
 }
-.breadcrumb ol li.title {
+.breadcrumb ol li.active {
   color: var(--black);
   font-weight: 500;
 }
-.breadcrumb ol li:nth-of-type(odd) {
+.breadcrumb ol li span::after {
+  content: "/";
   margin: 0 7px;
 }

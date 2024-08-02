@@ -5,7 +5,6 @@ import Header from "./components/layouts/Header";
 import Section from "./components/layouts/Section";
 import Article from "./components/layouts/Article";
 import Breadcrumbs from "./components/layouts/Breadcrumbs";
-
 import EmptyPage from "./components/layouts/EmptyPage";
 import { IoGridOutline, IoAlbumsOutline } from "react-icons/io5";
 
@@ -22,15 +21,13 @@ const menuGroups = [
     },
     {
       title: "CDS 환경 설정",
-      icon: <IoGridOutline />,
-      path: "/Article-env",
+      path: "/cds-env",
       element: <Article />,
     },
     {
       title: "솔루션 환경 설정",
-      icon: <IoGridOutline />,
       path: "/solution-env",
-      element: <Section />,
+      element: <Article />,
     },
   ],
   [
@@ -45,7 +42,7 @@ const menuGroups = [
           title: "관리자 관리",
           icon: <IoGridOutline />,
           path: "/article",
-          element: <Article />,
+          element: <Section />,
         },
         {
           title: "관리자 접속 이력",
@@ -65,19 +62,19 @@ const menuGroups = [
       subMenu: [
         {
           title: "사용자 정책 변경 이력",
-          path: "/section/test4",
+          path: "/test4",
           element: <Section />,
         },
         {
           title: "CDS 정책 변경이력",
-          path: "/section/test5",
-          element: <Section />,
+          path: "/test5",
+          element: <Article />,
         },
       ],
     },
   ],
-  // 추가적인 menuItems 배열을 여기에 추가
 ];
+
 function generateRoutes(menuGroups) {
   const routes = [];
 
@@ -107,6 +104,7 @@ function generateRoutes(menuGroups) {
 
   return routes;
 }
+
 function App() {
   const [navClosed, setNavClosed] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);

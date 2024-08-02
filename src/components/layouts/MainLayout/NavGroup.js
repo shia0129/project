@@ -43,7 +43,7 @@ const NavGroup = ({ menuGroups }) => {
             onClick={() => handleSubMenuClick(groupIndex, index)}
           >
             <div onClick={() => toggleMenu(groupIndex, index)}>
-              <NavLink to={item.path}>
+              <NavLink to={item.path} id={groupIndex}>
                 <span className="title">
                   <i>{item.icon}</i>
                   <span className="link_name">{item.title}</span>
@@ -72,7 +72,7 @@ const NavGroup = ({ menuGroups }) => {
             </div>
             {item.subMenu && (
               <ul className="sub-menu blank">
-                <li>{item.title}</li>
+                <li key={index}>{item.title}</li>
                 {item.subMenu.map((subItem, subIndex) => (
                   <>
                     <li key={subIndex}>
