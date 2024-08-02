@@ -325,7 +325,7 @@ p {
 ::-webkit-scrollbar-track{background:#efefef;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:inset 0 0 4px rgba(0,0,0,.2)}
 ::-webkit-scrollbar-thumb{height:50px;width:50px;background:rgba(0,0,0,.2);-webkit-border-radius:8px;border-radius:8px;-webkit-box-shadow:inset 0 0 4px rgba(0,0,0,.1)} */
 :root {
-  --main: #008abb;
+  --main: var(--primary7-dark);
   --main-hv: #015d8e;
   --bg: rgba(184, 196, 255, 0.17);
   --error: #ff4d4f;
@@ -334,6 +334,36 @@ p {
   --success-hv: #3d9213;
   --info: #13c2c2;
   --info-hv: #0e9999;
+
+  --primary1: #e6f7ff;
+  --primary2: #bae7ff;
+  --primary3: #91d5ff;
+  --primary4: #69c0ff;
+  --primary5: #40a9ff;
+  --primary6-main: #1890ff;
+  --primary7-dark: #096dd9;
+  --primary8: #0050b3;
+  --primary9: #003a8c;
+  --primary10: #002766;
+
+  --Green1: #f6ffed;
+  --Green2: #95de64;
+  --Green3: #52c41a;
+  --Green4: #237804;
+  --Green5: #092b00;
+
+  --Red1: #fff1f0;
+  --Red2: #ff7875;
+  --Red3: #f5222d;
+  --Red4: #a8071a;
+  --Red5: #5c0011;
+
+  --Gold1: #fffbe6;
+  --Gold2: #ffd666;
+  --Gold3: #faad14;
+  --Gold4: #ad6800;
+  --Gold5: #613400;
+
   --white: #ffffff;
   --gray: #fafafa;
   --gray1: #f5f5f5;
@@ -345,11 +375,16 @@ p {
   --dark2: #262626;
   --dark3: #141414;
   --black: #000000;
-  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow: rgba(0, 0, 0, 0.07);
+
+  --minLogo: url(../../public/images/minLogoColor.svg);
+  --logo: url(../../public/images/logoColor.svg);
 }
 
 :root[color-theme="dark"] {
-  --white: #000000;
+  --main: var(--primary4);
+  --main-hv: #015d8e;
+  --white: #141414;
   --gray: #141414;
   --gray1: #1e1e1e;
   --gray2: #595959;
@@ -359,6 +394,9 @@ p {
   --dark1: #f0f0f0;
   --dark2: #f5f5f5;
   --dark3: #fafafa;
-  --black: #ffffff;
+  --black: #fafafa;
   --shadow: #595959;
+
+  --minLogo: url(../../public/images/minilogo.svg);
+  --logo: url(../../public/images/logo.svg);
 }

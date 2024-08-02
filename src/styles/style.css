@@ -11,6 +11,7 @@
   width: 100%;
   display: flex;
 }
+
 nav {
   position: fixed;
   top: 0;
@@ -34,6 +35,7 @@ main {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  background-color: var(--white);
 }
 header {
   position: fixed;
@@ -54,45 +56,65 @@ section {
   margin: auto;
   width: 100%;
   min-width: 1200px;
-  max-width: 1900px;
+  max-width: 2400px;
   height: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
 
+.fullscreen nav,
+.fullscreen nav.colse,
+.fullscreen header {
+  width: 0 !important;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  visibility: hidden;
+}
+
+.fullscreen main,
+.fullscreen nav.close ~ main {
+  width: 100%;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+.fullscreen main section {
+  padding: 24px 24px 0;
+  transition: all 0.3s ease-in-out;
+}
+
 .tab-style2 .tab {
-  border-top: solid 1px #ddd;
-  border-left: solid 1px #ddd;
-  border-right: solid 1px #ddd;
-  border-bottom: solid 1px #007bff;
-  background-color: #f8f8f8;
+  border-top: solid 1px var(--gray3);
+  border-left: solid 1px var(--gray3);
+  border-right: solid 1px var(--gray3);
+  border-bottom: solid 1px var(--main);
+  background-color: var(--gray);
   transition: unset;
   margin-right: -1px;
-  color: #aaa;
+  color: var(--dark);
 }
 .tab-style2 .tab-slider {
   display: none;
 }
 .tab-style2 .tab.active {
-  border-top: solid 1px #007bff;
-  border-left: solid 1px #007bff;
-  border-right: solid 1px #007bff;
+  border-top: solid 1px var(--main);
+  border-left: solid 1px var(--main);
+  border-right: solid 1px var(--main);
   border-bottom: unset;
-  color: #007bff;
-  background: #fff;
+  color: var(--main);
+  background: var(--white);
   transition: unset;
-  z-index: 1000;
+  z-index: 10;
 }
 .tab-style2 .tabs {
   border-bottom: unset;
   bottom: -1px;
-  background-color: #eee;
-  box-shadow: inset 0px -1px 0px #007bff;
+  background-color: var(--gray1);
+  box-shadow: inset 0px -1px 0px var(--main);
 }
 
 .tab-style2 .tab-content {
-  border: solid 1px #007bff;
+  border: solid 1px var(--main);
   padding: 20px;
   margin: unset;
 }
@@ -106,16 +128,16 @@ section {
   display: none;
 }
 .tab-style3 .tab.active {
-  color: #fff;
+  color: var(--white);
 
-  z-index: 1000;
+  z-index: 10;
 }
 .tab-style3 .tabs {
-  background-color: var(--gray1);
+  background-color: var(--gray);
   border-radius: 40px;
   overflow: hidden;
   padding: 2px 5px;
-  box-shadow: inset 1px 3px 5px 0px #d0d0d042;
+  box-shadow: inset 1px 3px 5px 0px var(--shadow);
 }
 
 .tab-style3 .tab-content {
@@ -124,7 +146,7 @@ section {
 }
 .tab-style3 .tab-slider {
   display: block;
-  background-image: linear-gradient(#2e5bfd, #2da8dd);
+  background-image: linear-gradient(var(--main), var(--primary5));
   position: absolute;
   bottom: 3px;
   height: 33px;
@@ -135,7 +157,7 @@ section {
   display: flex;
   justify-content: flex-start;
   position: relative;
-  border-bottom: solid 2px #eee;
+  border-bottom: solid 2px var(--gray2);
   flex-direction: row;
 }
 
@@ -149,17 +171,9 @@ section {
 
 .tab.active,
 .tab:hover {
-  color: #007bff;
+  color: var(--main);
   transition: all 0.3s ease;
 }
-
-/* .tab-slider {
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  background-color: #007bff;
-  transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
-} */
 
 .tab-content {
   margin: 20px;
@@ -178,6 +192,41 @@ section {
   bottom: -2px;
   height: 2px;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: var(--main);
   transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: space-between;
+}
+.breadcrumb div {
+  display: flex;
+  align-items: center;
+}
+.breadcrumb div .screen {
+  display: flex;
+  font-size: 1rem;
+  margin-left: 16px;
+  cursor: pointer;
+  padding: 5px;
+}
+.breadcrumb div .screen:hover {
+  background-color: var(--gray);
+  border-radius: 3px;
+  transition: all 0.3s ease-in;
+}
+.breadcrumb ol {
+  display: flex;
+  line-height: 30px;
+}
+.breadcrumb ol li {
+  color: var(--dark);
+}
+.breadcrumb ol li.title {
+  color: var(--black);
+  font-weight: 500;
+}
+.breadcrumb ol li:nth-of-type(odd) {
+  margin: 0 7px;
 }

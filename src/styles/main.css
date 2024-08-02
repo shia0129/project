@@ -37,7 +37,7 @@ header > .ctrl > div > .list > ul > li {
   justify-content: space-between;
   align-items: center;
   padding: 6px 15px;
-  border-top: solid 1px var(--gray1);
+  border-top: solid 1px var(--gray2);
 }
 header > .ctrl > div > .list > ul > li .vol-icon {
   font-size: 23px;

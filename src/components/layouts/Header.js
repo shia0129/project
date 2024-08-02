@@ -1,17 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   IoNotificationsOutline,
   IoMenu,
   IoSettingsOutline,
 } from "react-icons/io5";
 import Notification from "./MainLayout/Notification";
+import Settings from "./MainLayout/Settings";
 
 function Header({ navClosed, toggleNav }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
+  const ctrlRef = useRef(null);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = (menuId) => {
+    setActiveMenu(activeMenu === menuId ? null : menuId);
   };
+
+  const handleClickOutside = (event) => {
+    if (ctrlRef.current && !ctrlRef.current.contains(event.target)) {
+      setActiveMenu(null);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <>
       <header>
@@ -25,21 +40,25 @@ function Header({ navClosed, toggleNav }) {
 
           <h1>사용자</h1>
         </div>
-        <div className="ctrl">
+        <div className="ctrl" ref={ctrlRef}>
           <div>
-            <i className={isMenuOpen ? "on" : ""} onClick={toggleMenu}>
+            <i
+              className={activeMenu === "notifications" ? "on" : ""}
+              onClick={() => toggleMenu("notifications")}
+            >
               <IoNotificationsOutline />
             </i>
-            <Notification isMenuOpen={isMenuOpen} />
             <span className="num">100</span>
+            <Notification isMenuOpen={activeMenu === "notifications"} />
           </div>
           <div>
-            <i>
+            <i
+              className={activeMenu === "settings" ? "on" : ""}
+              onClick={() => toggleMenu("settings")}
+            >
               <IoSettingsOutline />
             </i>
-            <div style={{ display: "none" }} className="list">
-              <input id="check" type="checkbox" />
-            </div>
+            <Settings isMenuOpen={activeMenu === "settings"} />
           </div>
         </div>
       </header>
