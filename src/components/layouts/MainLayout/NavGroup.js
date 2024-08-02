@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { IoChevronDown, IoGridOutline, IoAlbumsOutline } from "react-icons/io5";
+import { IoChevronDown } from "react-icons/io5";
 
-const NavGroup = () => {
+const NavGroup = ({ menuGroups }) => {
   // 각 메뉴 그룹의 활성 상태를 관리하는 state
   const [activeMenus, setActiveMenus] = useState({});
   // 각 서브 메뉴의 활성 상태를 관리하는 state
@@ -113,49 +113,5 @@ const NavGroup = () => {
     </>
   );
 };
-
-const menuGroups = [
-  [
-    {
-      title: "시스템 설정",
-    },
-    {
-      title: "알람 메일 설정",
-      icon: <IoGridOutline />,
-      path: "/",
-    },
-    {
-      title: "CDS 환경 설정",
-      path: "/",
-    },
-    {
-      title: "솔루션 환경 설정",
-      path: "/",
-    },
-  ],
-  [
-    {
-      title: "관리자",
-    },
-    {
-      title: "관리자 정보 관리",
-      icon: <IoAlbumsOutline />,
-      subMenu: [
-        { title: "관리자 관리", icon: <IoGridOutline />, path: "/article" },
-        { title: "관리자 접속 이력", path: "/article/test2" },
-        { title: "관리자 차단 해지", path: "/article/test2" },
-      ],
-    },
-    {
-      title: "관리자 감사",
-      icon: <IoAlbumsOutline />,
-      subMenu: [
-        { title: "사용자 정책 변경 이력", path: "/article/test3" },
-        { title: "CDS 정책 변경이력", path: "/article/test4" },
-      ],
-    },
-  ],
-  // 추가적인 menuItems 배열을 여기에 추가
-];
 
 export default NavGroup;
