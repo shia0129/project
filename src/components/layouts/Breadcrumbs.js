@@ -47,6 +47,7 @@ function Breadcrumbs({ toggleFullscreen, isFullscreen, menuGroups }) {
                 className={index === breadcrumbs.length - 1 ? "title" : ""}
               >
                 {crumb.title}
+                <span></span>
               </li>
             ))}
           </ol>

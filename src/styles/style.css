@@ -223,11 +223,14 @@ section {
 .breadcrumb ol li {
   color: var(--dark);
 }
-.breadcrumb ol li.active {
+.breadcrumb ol li.title {
   color: var(--black);
   font-weight: 500;
 }
 .breadcrumb ol li span::after {
   content: "/";
   margin: 0 7px;
+}
+.breadcrumb ol li:last-child span {
+  display: none;
 }
