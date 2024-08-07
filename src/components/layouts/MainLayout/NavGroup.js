@@ -30,19 +30,18 @@ const NavGroup = ({ menuGroups }) => {
   // 각 메뉴 그룹을 렌더링하는 함수
   const renderMenuItems = (groupIndex, items) =>
     items.map((item, index) => (
-      <>
+      <li
+        key={index}
+        className={`menu-item ${
+          (activeMenus[groupIndex] || []).includes(index)
+            ? "active showMenu"
+            : ""
+        }`}
+      >
         {!item.subMenu ? (
           /* 서브 메뉴가 없는 경우 */
-          <li
-            key={index}
-            className={`menu-item ${
-              (activeMenus[groupIndex] || []).includes(index)
-                ? "active showMenu"
-                : ""
-            }`}
-            onClick={() => handleSubMenuClick(groupIndex, index)}
-          >
-            <div onClick={() => toggleMenu(groupIndex, index)}>
+          <>
+            <div onClick={() => handleSubMenuClick(groupIndex, index)}>
               <NavLink to={item.path} id={groupIndex}>
                 <span className="title">
                   <i>{item.icon}</i>
@@ -50,17 +49,16 @@ const NavGroup = ({ menuGroups }) => {
                 </span>
               </NavLink>
             </div>
-          </li>
+
+            <ul className="sub-menu blank">
+              <li className="link_name title_name" key={index}>
+                {item.title}
+              </li>
+            </ul>
+          </>
         ) : (
           /* 서브 메뉴가 있는 경우 */
-          <li
-            key={index}
-            className={`menu-item ${
-              (activeMenus[groupIndex] || []).includes(index)
-                ? "active showMenu"
-                : ""
-            }`}
-          >
+          <>
             <div onClick={() => toggleMenu(groupIndex, index)}>
               <span className="title">
                 <i>{item.icon}</i>
@@ -72,7 +70,7 @@ const NavGroup = ({ menuGroups }) => {
             </div>
             {item.subMenu && (
               <ul className="sub-menu blank">
-                <li key={index}>{item.title}</li>
+                <li>{item.title}</li>
                 {item.subMenu.map((subItem, subIndex) => (
                   <>
                     <li key={subIndex}>
@@ -97,9 +95,9 @@ const NavGroup = ({ menuGroups }) => {
                 ))}
               </ul>
             )}
-          </li>
+          </>
         )}
-      </>
+      </li>
     ));
 
   return (

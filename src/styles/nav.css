@@ -243,7 +243,15 @@ nav.close .nav-links li:hover .sub-menu {
 nav.close .nav-links li .sub-menu li:nth-child(1) {
   display: block;
   border-bottom: solid 1px var(--gray3);
+  cursor: default;
 }
+nav.close .nav-links li .sub-menu li.title_name {
+  border-bottom: none;
+  width: inherit;
+  white-space: nowrap;
+  padding: 10px 20px;
+}
+
 nav.close .nav-links li .sub-menu li {
   padding: 5px 20px;
 }
