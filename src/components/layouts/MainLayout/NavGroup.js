@@ -68,33 +68,30 @@ const NavGroup = ({ menuGroups }) => {
                 <IoChevronDown />
               </i>
             </div>
-            {item.subMenu && (
-              <ul className="sub-menu blank">
-                <li>{item.title}</li>
-                {item.subMenu.map((subItem, subIndex) => (
-                  <>
-                    <li key={subIndex}>
-                      <NavLink
-                        id={subIndex}
-                        to={subItem.path}
-                        className={
-                          activeSubMenuIndex[groupIndex] &&
-                          activeSubMenuIndex[groupIndex][index] === subIndex
-                            ? "on"
-                            : ""
-                        }
-                        onClick={() =>
-                          handleSubMenuClick(groupIndex, index, subIndex)
-                        }
-                      >
-                        <>{subItem.icon}</>
-                        {subItem.title}
-                      </NavLink>
-                    </li>
-                  </>
-                ))}
-              </ul>
-            )}
+
+            <ul className="sub-menu blank">
+              <li>{item.title}</li>
+              {item.subMenu.map((subItem, subIndex) => (
+                <li key={subIndex}>
+                  <NavLink
+                    id={subIndex}
+                    to={subItem.path}
+                    className={
+                      activeSubMenuIndex[groupIndex] &&
+                      activeSubMenuIndex[groupIndex][index] === subIndex
+                        ? "on"
+                        : ""
+                    }
+                    onClick={() =>
+                      handleSubMenuClick(groupIndex, index, subIndex)
+                    }
+                  >
+                    <>{subItem.icon}</>
+                    {subItem.title}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
           </>
         )}
       </li>
